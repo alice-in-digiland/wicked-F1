@@ -124,8 +124,10 @@ running = True
 clock = pygame.time.Clock()
 
 #import
+bg_surf = pygame.image.load('bg1.jpg').convert()
+bg_surf = pygame.transform.scale(bg_surf, (screen_width, screen_height)) 
 fia_surf = pygame.image.load('star.png').convert_alpha()
-max_surf = pygame.image.load('larry.png').convert_alpha()
+max_surf = pygame.image.load('kitty.png').convert_alpha()
 nana_surf = pygame.image.load('nana.png').convert_alpha()
 font = pygame.font.Font(None, 40)
 explosion_frames = [pygame.image.load(join('boom', f'{i}.png')).convert_alpha() for i in range(7)]
@@ -158,7 +160,7 @@ while running:
     collisions()
 
     #draw the game
-    screen.fill("#F1A480")
+    screen.blit(bg_surf, (0, 0))
     scores()
     all_sprites.draw(screen)
 
